@@ -13,6 +13,7 @@ CREATE TABLE posts(
     id TEXT UNIQUE PRIMARY KEY NOT NULL,
     creator_id TEXT NOT NULL,
     content TEXT NOT NULL,
+    comments INTEGER NOT NULL,
     likes INTEGER NOT NULL,
     dislikes INTEGER NOT NULL,
     created_at TEXT DEFAULT(datetime('now', 'localtime')),
@@ -21,6 +22,8 @@ CREATE TABLE posts(
         ON UPDATE CASCADE
     ON DELETE CASCADE
 );
+
+DROP TABLE posts;
 
 CREATE TABLE like_dislike(
     user_id TEXT NOT NULL,
