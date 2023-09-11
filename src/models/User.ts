@@ -1,13 +1,12 @@
 
   export interface TokenPayload {
     id: string;
-    name: string;
+    nickname: string;
     
   }
 
 export interface UserDB{
     id: string,
-    name: string,
     email: string,
     password: string,
     nickname: string,
@@ -15,7 +14,6 @@ export interface UserDB{
 }
 export interface UserModel {
     id: string;
-    name: string;
     email: string;
     nickname: string;
     createdAt: string;
@@ -24,7 +22,7 @@ export interface UserModel {
 export class User{
     constructor(
         private id: string,
-        private name: string,
+  
         private email: string,
         private password: string,
         private nickname: string,
@@ -35,12 +33,6 @@ export class User{
     }
     public setId(value: string): void{
         this.id = value
-    }
-    public getName(): string{
-        return this.name
-    }
-    public setName(value: string): void{
-        this.name = value
     }
     public getEmail(): string{
         return this.email
@@ -69,7 +61,6 @@ export class User{
     public toDBModel(): UserDB {
         return {
           id: this.id,
-          name: this.name,
           email: this.email,
           password: this.password,
           nickname: this.nickname,
@@ -80,7 +71,6 @@ export class User{
       public toBusinessModel(): UserModel {
         return {
           id: this.id,
-          name: this.name,
           email: this.email,
           nickname: this.nickname,
           createdAt: this.createdAt,
