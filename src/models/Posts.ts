@@ -2,6 +2,7 @@ export interface PostDB {
     id: string;
     creator_id: string;
     content: string;
+    comments: number;
     likes: number;
     dislikes: number;
     created_at: string;
@@ -12,6 +13,7 @@ export interface PostDB {
     id: string;
     creator_id: string;
     content: string;
+    comments: number;
     likes: number;
     dislikes: number;
     created_at: string;
@@ -33,6 +35,7 @@ export interface PostDB {
   export interface PostModel {
     id: string;
     content: string;
+    comments: number;
     likes: number;
     dislikes: number;
     created_at: string;
@@ -49,6 +52,7 @@ export interface PostDB {
         private id: string,
         private creatorId: string,
         private content: string,
+        private comments: number,
         private likes: number,
         private dislikes: number,
         private createdAt: string,
@@ -75,6 +79,13 @@ export interface PostDB {
     
       public setContent(v: string): void {
         this.content = v;
+      }
+      public getComments(): number {
+        return this.comments
+      }
+
+      public setComments(v: number): void {
+        this.comments = v
       }
     
       public getLikes(): number {
@@ -132,6 +143,7 @@ export interface PostDB {
           id: this.id,
           creator_id: this.creatorId,
           content: this.content,
+          comments: this.comments,
           likes: this.likes,
           dislikes: this.dislikes,
           created_at: this.createdAt,
@@ -143,6 +155,7 @@ export interface PostDB {
         return {
           id: this.id,
           content: this.content,
+          comments: this.comments,
           likes: this.likes,
           dislikes: this.dislikes,
           created_at: this.createdAt,
